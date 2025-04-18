@@ -9,15 +9,13 @@ const OwnerSignup1 = () => {
   }
 
   return (
-    <div
-      style={{
-        background: 'linear-gradient(to bottom, #1a202c, #2d3748)',
-        minHeight: '100vh',
-        position: 'relative',
-        overflow: 'hidden',
-        color: 'white',
-      }}
-    >
+    <div className="min-h-screen w-full" style={{
+      backgroundImage: `url(/easystay6.webp)`,
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+      backgroundSize: 'cover'
+    }}>
+    
       {/* Inline Glassmorphic and Tailwind Styles */}
       <style>
         {`
@@ -38,7 +36,7 @@ const OwnerSignup1 = () => {
             background: linear-gradient(to right, #f6e05e, #ecc94b);
             color: #1a202c;
             font-family: 'Poppins', sans-serif;
-            font-weight: 600;
+              font-weight: 600;
             border-radius: 12px;
             padding: 12px 24px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -72,7 +70,7 @@ const OwnerSignup1 = () => {
       </style>
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-10 glassmorphic-nav">
+      {/* <nav className="fixed top-0 left-0 right-0 z-10 glassmorphic-nav">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
           <a href="/" className="flex items-center space-x-2">
             <div className="glassmorphic p-1 rounded-full">
@@ -90,7 +88,7 @@ const OwnerSignup1 = () => {
             <span className="text-xl font-bold text-white animate-glow">EaseStay</span>
           </a>
         </div>
-      </nav>
+      </nav> */}
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12 flex items-center justify-center min-h-[calc(100vh-120px)]">
@@ -112,7 +110,7 @@ const OwnerSignup1 = () => {
               className="text-4xl md:text-5xl font-semibold mb-4"
               style={{ fontFamily: '"Dancing Script", cursive, sans-serif' }}
             >
-              Sign Up For <span className="text-yellow-400">EaseStay</span>
+              Sign Me <span className="text-yellow-400">Up</span>
             </h1>
             <p className="text-gray-300">
               Already have an account?{' '}

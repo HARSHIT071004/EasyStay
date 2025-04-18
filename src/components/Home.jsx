@@ -10,7 +10,11 @@ const Home = () => {
   const [fromDate, setFromDate] = useState(new Date());
   const [toDate, setToDate] = useState(new Date());
   const [guests, setGuests] = useState(0);
+  const [showDropdown, setShowDropdown] = useState(false);
 
+  const toggleDropdown = () => {
+    setShowDropdown(prev => !prev);
+  };
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -104,114 +108,141 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen text-white " style={{
-      backgroundImage: `url(/homepage_background.png)`,
+    <div className="min-h-screen w-full" style={{
+      backgroundImage: `url(/easystay6.webp)`,
       backgroundPosition: 'center',
-      backgroundAttachment: 'fixed'
+      backgroundAttachment: 'fixed',
+      backgroundSize: 'cover'
     }}>
-      {/* Inline Glassmorphic Styles for EaseStay Heading */}
-      <style>
-        {`
-          .glassmorphic-logo {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          }
-          .animate-glow {
-            animation: glow 2s ease-in-out infinite;
-          }
-          @keyframes glow {
-            0%, 100% { text-shadow: 0 0 5px rgba(96, 165, 250, 0.5), 0 0 10px rgba(167, 139, 250, 0.4); }
-            50% { text-shadow: 0 0 10px rgba(96, 165, 250, 0.8), 0 0 20px rgba(167, 139, 250, 0.6); }
-          }
-        `}
-      </style>
-
       {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-10 bg-black bg-opacity-10 border border-white border-opacity-20 shadow-lg">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <a href="/" className="flex items-center  tracking-widest">
-
-            <h1 className="text-lg font-semibold text-black" style={{ letterSpacing: '2px', fontFamily: '"Poppins", sans-serif' }}>
+      <nav className="fixed  left-0 right-0 z-20 bg-opacity-30 backdrop-blur-md border-b border-image-gradient shadow-xl">
+        <style>
+          {`
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+            .border-image-gradient {
+              border-image: linear-gradient(to right, #f6e05e, #ecc94b) 1;
+            }
+            .glassmorphic-dropdown {
+              background: rgba(0, 0, 0, 0.5);
+              backdrop-filter: blur(12px);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+              border-radius: 12px;
+              overflow: hidden;
+            }
+            .glassmorphic-dropdown-item {
+              font-family: 'Poppins', sans-serif;
+              font-size: 0.875rem;
+              font-weight: 500;
+              color: white;
+              padding: 10px 20px;
+              transition: all 0.3s ease;
+            }
+            .glassmorphic-dropdown-item:hover {
+              background: linear-gradient(to right, #f6e05e, #ecc94b);
+              color: #1a202c;
+              transform: translateX(4px);
+            }
+            .glassmorphic-dropdown-item.border-b {
+              border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .navbar-button {
+              transition: all 0.3s ease;
+            }
+            .navbar-button:hover {
+              transform: scale(1.05);
+              color: #f6e05e;
+            }
+            .animate-glow {
+              animation: glow 2s ease-in-out infinite;
+            }
+            @keyframes glow {
+              0%, 100% { text-shadow: 0 0 5px rgba(246, 224, 94, 0.5); }
+              50% { text-shadow: 0 0 10px rgba(246, 224, 94, 0.8); }
+            }
+          `}
+        </style>
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <a href="/" className="flex items-center tracking-widest">
+            <h1 className="text-lg font-semibold text-white animate-glow" style={{ letterSpacing: '2px', fontFamily: '"Poppins", sans-serif' }}>
               EaseStay
             </h1>
-
           </a>
-          <div className="flex items-center space-x-6">
-            <button className="text-white font-semibold hover:text-F7C948 transition duration-300">
+          <div className="flex items-center space-x-4">
+            <button className="text-white font-semibold navbar-button">
               Trip Boards
             </button>
             {!isTravelerLoggedIn ? (
-              <div className="relative group ml-6">
-                <button className="text-white font-semibold px-4 py-2 rounded-lg transition duration-300 ease-in-out hover:text-yellow-400">
-                  Login
-                </button>
-                <div className="absolute hidden group-hover:flex flex-col bg-white bg-opacity-10 backdrop-blur-md border border-white border-opacity-20 rounded-xl shadow-lg mt-2 right-0 min-w-[180px] overflow-hidden transition-all duration-300 z-50">
+              <div className="relative">
+              <button
+                onClick={toggleDropdown}
+                className="text-white font-semibold px-4 py-2 rounded-lg navbar-button"
+              >
+                Login
+              </button>
+              {showDropdown && (
+                <div className="absolute flex flex-col glassmorphic-dropdown mt-2 right-0 min-w-[180px] transition-all duration-300 z-50">
                   <a
                     href="/traveller/login"
-                    className="px-5 py-3 text-white hover:bg-yellow-400 hover:text-black transition duration-200 text-sm font-medium border-b border-white border-opacity-10"
+                    className="glassmorphic-dropdown-item border-b"
                   >
                     Traveller Login
                   </a>
                   <a
                     href="/owner/login"
-                    className="px-5 py-3 text-white hover:bg-yellow-400 hover:text-black transition duration-200 text-sm font-medium"
+                    className="glassmorphic-dropdown-item"
                   >
                     Owner Login
                   </a>
                 </div>
-              </div>
-
+              )}
+            </div>
             ) : (
               <div className="relative group">
-                <button className="text-white font-semibold hover:text-F7C948 transition duration-300">
+                <button className="text-white font-semibold navbar-button">
                   Hello {cookie.load('cookie3')}
                 </button>
-                <div className="absolute hidden group-hover:block bg-white bg-opacity-10 backdrop-blur-md border border-white border-opacity-20 rounded-lg shadow-lg mt-2 right-0">
-                  <a href="/Profile" className="block px-4 py-2 text-white hover:bg-F7C948 hover:bg-opacity-20 rounded-t-lg">Profile</a>
-                  <a href="/traveller/mytrips" className="block px-4 py-2 text-white hover:bg-F7C948 hover:bg-opacity-20">My Trips</a>
-                  <a href="#" onClick={logout} className="block px-4 py-2 text-white hover:bg-F7C948 hover:bg-opacity-20 rounded-b-lg">Logout</a>
+                <div className="absolute hidden group-hover:flex flex-col glassmorphic-dropdown mt-2 right-0 min-w-[180px] transition-all duration-300 z-50">
+                  <a href="/Profile" className="glassmorphic-dropdown-item border-b">Profile</a>
+                  <a href="/traveller/mytrips" className="glassmorphic-dropdown-item border-b">My Trips</a>
+                  <a href="#" onClick={logout} className="glassmorphic-dropdown-item">Logout</a>
                 </div>
               </div>
             )}
             <a
               href="/owner/login"
-              className="bg-F7C948 text-white font-semibold px-6 py-2 rounded-full hover:bg-F7C948 hover:opacity-90 transition duration-300"
+              className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold px-6 py-2 rounded-full hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300 transform hover:scale-105"
             >
-              List your Property
+              Turn Space Profitable
             </a>
           </div>
         </div>
       </nav>
 
       {/* Main Content */}
-      <div className="container mx-auto flex flex-col items-center justify-center min-h-screen">
-        <div className="text-center mb-2">
-          <h1 className="text-3xl mb-2 uppercase text-[rgb(250,250,249)]">
-            Book beach houses, cabins ,condos
-          </h1>
-          <h1 className="text-3xl uppercase text-[rgb(250,250,249)]">
-            and more, worldwide
-          </h1>
-        </div>
-        <div style={{
-          backgroundColor:"rgba(0,0,0,0.3)"
-        }} className="backdrop-blur-sm bg-opacity-70 shadow-2xl border-[0.5px] border-white/30 rounded-3xl p-6 w-[140vh] max-w-4xl ">
-
+      <div className="container text-white mx-auto flex flex-col items-center justify-center min-h-screen">
+        <p className="text-4xl font-semibold mb-2 uppercase text-[rgb(0,0,0)]">
+          worldwide rental homes, cabins, condos aur beach houses!
+        </p>
+        <br/>
+        <p className="text-4xl font-bold text-[rgb(255,229,136)]">
+          Ghar se door, ek naya ghar 
+        </p>
+        <div className="backdrop-blur-sm bg-opacity-70 shadow-2xl border-[0.5px] border-white/30 rounded-3xl p-6 w-[140vh] max-w-4xl">
           <p
             className="text-2xl text-white text-center mt-2"
             style={{ fontFamily: '"Dancing Script", cursive, sans-serif' }}
           >
             LIST NOW OR
             <span
-              className="ml-3 text-blue-500 "
+              className="ml-3 text-blue-500"
               style={{ textShadow: '0 2px 4px rgba(0, 0, 255, 0.3)' }}
             >
               BOOK YOUR STAY
             </span>
             {" "}?
-          </p><div className="grid grid-cols-6 gap-3 items-center">
+          </p>
+          <div className="grid grid-cols-6 gap-3 items-center">
             <input
               type="text"
               className="col-span-2 bg-white/50 bg-opacity-50 border-[0.5px] border-white/30 placeholder-gray-900 border-opacity-30 rounded-2xl p-2 text-black focus:outline-none focus:ring-2 focus:ring-F7C948 transition duration-300 text-sm md:text-base"
@@ -244,7 +275,7 @@ const Home = () => {
                   className="w-6 h-6"
                   fill="none"
                   stroke="currentColor"
-                  viewBox="0 0 24 24"
+                  viewBox="0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -257,9 +288,6 @@ const Home = () => {
               </div>
             </div>
           </div>
-
-
-          {/* </div> */}
         </div>
       </div>
     </div>

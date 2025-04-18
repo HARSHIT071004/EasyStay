@@ -70,15 +70,13 @@ class UserLogin extends Component {
       redirectVar = <Navigate to="/user/dashboard" />;
     }
     return (
-      <div
-        style={{
-          background: "linear-gradient(to bottom, #1a202c, #2d3748)",
-          minHeight: "100vh",
-          position: "relative",
-          overflow: "hidden",
-          color: "white",
-        }}
-      >
+
+      <div className="min-h-screen w-full" style={{
+      backgroundImage: `url(/easystay6.webp)`,
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+      backgroundSize: 'cover'
+    }}>
         {redirectVar}
         {/* Inline Glassmorphic and Tailwind Styles */}
         <style>
@@ -150,7 +148,7 @@ class UserLogin extends Component {
         </style>
 
         {/* Navbar */}
-        <nav className="fixed top-0 left-0 right-0 z-10 glassmorphic-nav">
+        {/* <nav className="fixed top-0 left-0 right-0 z-10 glassmorphic-nav">
           <div className="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="/" className="flex items-center space-x-2">
               <div className="glassmorphic p-1 rounded-full">
@@ -168,7 +166,7 @@ class UserLogin extends Component {
               <span className="text-xl font-bold text-white animate-glow">EaseStay</span>
             </a>
           </div>
-        </nav>
+        </nav> */}
 
         {/* Main Content */}
         <div className="container mx-auto px-4 py-12 flex items-center justify-center min-h-[calc(100vh-120px)]">

@@ -24,23 +24,19 @@ class Signup1 extends Component {
           </Container>
         </Navbar> */}
 
-        <div
-          className="signup-body"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '40px 20px',
-          }}
-        >
+<div className="min-h-screen w-full" style={{
+      backgroundImage: `url(/easystay6.webp)`,
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
+      backgroundSize: 'cover'
+    }}>
           <img
             src={logo}
             alt="Logo"
             className="signup-logo"
             style={{ height: '70px', marginBottom: '20px' }}
           />
-                    <p className="text-4xl text-black font-semibold text-center mb-6"   style={{ fontFamily: '"Dancing Script", cursive, sans-serif' }}>Sign Up With <span className='text-white'>Email</span> </p>
+                    <p className="text-4xl text-black font-semibold text-center mb-6"   style={{ fontFamily: '"Dancing Script", cursive, sans-serif' }}>Sign Up With <span className='text-blue-500'>Email</span> </p>
                     <br/><br/><br/>
           <div
             className="signup-center"
