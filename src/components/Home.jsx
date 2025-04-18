@@ -115,7 +115,7 @@ const Home = () => {
       backgroundSize: 'cover'
     }}>
       {/* Navigation Bar */}
-      <nav className="fixed  left-0 right-0 z-20 bg-opacity-30 backdrop-blur-md border-b border-image-gradient shadow-xl">
+      <nav className=" z-20 bg-opacity-30 backdrop-blur-md border-b border-image-gradient shadow-xl">
         <style>
           {`
             @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');

@@ -23,7 +23,7 @@
     "react-helmet": "^6.1.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.5.0",
-    "react-web-tabs": "^1.0.1",
+    "react-tabs": "^6.1.0",
     "tailwindcss": "^4.1.4",
     "typeface-roboto": "^1.1.13"
   },
