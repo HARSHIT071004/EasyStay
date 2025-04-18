@@ -77,7 +77,7 @@ const Signup2 = () => {
     try {
       axios.defaults.withCredentials = true;
       const response = await axios.post(
-        'http://localhost:3001/homeaway/owner/signup',
+        'https://easy-stay-backend.vercel.app/homeaway/owner/signup',
         formData
       );
 

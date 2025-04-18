@@ -46,7 +46,7 @@ class PropertyDetails extends Component {
         console.log("In Property Details");
         var propertyID = this.state.propertyid;
 
-        var url = "http://localhost:3001/homeaway/property/" + propertyID;
+        var url = "https://easy-stay-backend.vercel.app/homeaway/property/" + propertyID;
         axios.get(url)
             .then(response => {
                 console.log("Status Code : ", response.status);

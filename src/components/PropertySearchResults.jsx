@@ -56,7 +56,7 @@ class PropertySearchResults extends Component {
         }
         console.log("Calling Property Search in Will mount");
         console.log(data);
-        axios.post('http://localhost:3001/homeaway/property/search', data)
+        axios.post('https://easy-stay-backend.vercel.app/homeaway/property/search', data)
         .then(response => {
             console.log("Status Code : ",response.status);
             if(response.status === 200){

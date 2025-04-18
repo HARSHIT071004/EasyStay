@@ -60,7 +60,7 @@ class Signup2 extends Component {
       const { firstname, lastname, email, password } = this.state;
 
       try {
-        const response = await axios.post('http://localhost:3001/homeaway/traveller/signup', {
+        const response = await axios.post('https://easy-stay-backend.vercel.app/homeaway/traveller/signup', {
           firstname, lastname, email, password
         }, { withCredentials: true });
 

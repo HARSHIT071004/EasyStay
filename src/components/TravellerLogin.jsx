@@ -42,7 +42,7 @@ class TravellerLogin extends Component {
       };
 
       axios.defaults.withCredentials = true;
-      axios.post('http://localhost:3001/homeaway/traveller/login', data)
+      axios.post('https://easy-stay-backend.vercel.app/homeaway/traveller/login', data)
         .then(response => {
           if (response.status === 200) {
             this.setState({ authFlag: true });

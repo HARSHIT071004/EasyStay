@@ -57,7 +57,7 @@ class TravellerTripListings extends Component {
         return <div className="brdr bgc-fff pad-10 box-shad btm-mrg-20 myborder1 property-listing" key={allTrips[i].ID}>
           <div className="media">
             <a className="pull-left" href="#" target="_parent">
-              <img alt="Thumbnail View of Property" className="img-responsive" src={`http://localhost:3001/uploads/${allTrips[0].image1}`} /></a>
+              <img alt="Thumbnail View of Property" className="img-responsive" src={`https://easy-stay-backend.vercel.app/uploads/${allTrips[0].image1}`} /></a>
             <div className="media-body">
               <h4 className="myh4">{allTrips[i].headline}</h4>
               <h6 className="myh6">{allTrips[i].description}</h6>
