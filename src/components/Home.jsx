@@ -110,10 +110,21 @@ const Home = () => {
             Login
           </button>
           {showDropdown && (
-            <div className="absolute right-0 mt-2 w-full sm:min-w-[180px] sm:w-auto flex flex-col glassmorphic-dropdown z-50">
-              <a href="/traveller/login" className="glassmorphic-dropdown-item border-b">Traveller Login</a>
-              <a href="/owner/login" className="glassmorphic-dropdown-item">Owner Login</a>
-            </div>
+           <div className="absolute right-0 mt-2 w-full sm:min-w-[200px] sm:w-auto flex flex-col bg-white/10 backdrop-blur-md border border-yellow-300 rounded-xl shadow-2xl z-50 animate-fadeIn overflow-hidden">
+           <a
+             href="/traveller/login"
+             className="px-5 py-3 text-white hover:bg-yellow-500/20 transition-colors duration-300 border-b border-yellow-200 tracking-wide"
+           >
+             Traveller Login
+           </a>
+           <a
+             href="/owner/login"
+             className="px-5 py-3 text-white hover:bg-yellow-500/20 transition-colors duration-300 tracking-wide"
+           >
+             Owner Login
+           </a>
+         </div>
+         
           )}
         </div>
       ) : (
